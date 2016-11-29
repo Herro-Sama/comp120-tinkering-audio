@@ -233,6 +233,9 @@ while True:
         print 'F6'
         F6()
 
+    if keys[K_v]:
+        print 'G6'
+        G6()
 
     if keys[K_SPACE]:
         print 'Silence'
