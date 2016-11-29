@@ -91,11 +91,11 @@ while True:
         print 'Sound two working'
         Sound2()
 
-    if keys[K_f]:
+    if keys[K_d]:
         print 'Sound three working'
         Sound3()
 
-    if keys[K_d]:
+    if keys[K_f]:
         print 'Sound four working'
         Sound4()
 
