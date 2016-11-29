@@ -16,7 +16,7 @@ Soundtuple2 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 Soundtuple3 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 Soundtuple4 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 Soundtuple5 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
-noise_out = wave.open('noise3.wav','w')
+noise_out = wave.open('keyboard.wav','w')
 noise_out.setparams(Soundtuple)
 
 values = []
@@ -177,7 +177,7 @@ font = pygame.font.SysFont(None, 96)
 
 
 while True:
-    pygame.key.set_repeat(500, 30)
+    pygame.key.set_repeat(5000, 5000)
     window.fill(Black)
     keys = pygame.key.get_pressed()
 
@@ -208,6 +208,31 @@ while True:
     if keys[K_j]:
         print 'G5'
         G5()
+
+    if keys[K_k]:
+        print 'A5'
+        A5()
+
+    if keys[K_l]:
+        print 'B5'
+        B5()
+
+    if keys[K_z]:
+        print 'C6'
+        C6()
+
+    if keys[K_x]:
+        print 'D6'
+        D6()
+
+    if keys[K_x]:
+        print 'E6'
+        E6()
+
+    if keys[K_c]:
+        print 'F6'
+        F6()
+
 
     if keys[K_SPACE]:
         print 'Silence'
