@@ -6,11 +6,9 @@ import sys
 from pygame.locals import *
 
 samplerate = float(44100) # Hz
-SampleLength = 11025# seconds
-frequency = 440 # Hz
-amplitude = 0.8
-samples = frequency*samplerate
-BitDepth = 32767
+SampleLength = 22050# seconds
+amplitude = 0.4
+BitDepth = 65000
 Soundtuple = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 Soundtuple2 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 Soundtuple3 = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
@@ -225,15 +223,15 @@ while True:
         print 'D6'
         D6()
 
-    if keys[K_x]:
+    if keys[K_c]:
         print 'E6'
         E6()
 
-    if keys[K_c]:
+    if keys[K_v]:
         print 'F6'
         F6()
 
-    if keys[K_v]:
+    if keys[K_b]:
         print 'G6'
         G6()
 
