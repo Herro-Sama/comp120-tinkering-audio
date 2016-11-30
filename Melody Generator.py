@@ -43,5 +43,5 @@ print noise_out_tuple[5]
 
 print Soundtuple
 print Soundtuple2
-noise_out.writeframes(values)
+noise_out.writeframes(str(values))
 noise_out.close()
