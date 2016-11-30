@@ -5,16 +5,18 @@ import pygame
 import sys
 from pygame.locals import *
 
-samplerate = float(44100) # Hz
-SampleLength = 22050# seconds
+samplerate = float(44100)                                                                                   # Hz
+SampleLength = 22050                                                                                        # seconds
 amplitude = 0.4
 BitDepth = 65000
 Soundtuple = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
-noise_out = wave.open('keyboard.wav','w')
+noise_out = wave.open('keyboard.wav', 'w')
 noise_out.setparams(Soundtuple)
 
 values = []
-def A4():
+
+
+def a4():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 440.000 * (i/Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -23,7 +25,7 @@ def A4():
             values.append(packaged_value)
 
 
-def B4():
+def b4():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 493.883 * (i/Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -34,7 +36,8 @@ def B4():
     value_str = ''.join(values)
     noise_out.writeframes(value_str)
 
-def C5():
+
+def c5():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 523.251 * (i/Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -45,39 +48,44 @@ def C5():
     value_str = ''.join(values)
     noise_out.writeframes(value_str)
 
-def D5():
+
+def d5():
     for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi *  587.330 * (i/Soundtuple[2])) * (amplitude * BitDepth)
+        value = math.sin(2.0 * math.pi * 587.330 * (i/Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def E5():
+
+def e5():
     for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi *  659.255 * (i / Soundtuple[2])) * (amplitude * BitDepth)
+        value = math.sin(2.0 * math.pi * 659.255 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def F5():
+
+def f5():
     for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi *  698.456 * (i / Soundtuple[2])) * (amplitude * BitDepth)
+        value = math.sin(2.0 * math.pi * 698.456 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def G5():
+
+def g5():
     for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi *  783.991 * (i / Soundtuple[2])) * (amplitude * BitDepth)
+        value = math.sin(2.0 * math.pi * 783.991 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def E6():
+
+def e6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1318.51 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -85,7 +93,8 @@ def E6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def B5():
+
+def b5():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 987.767 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -93,7 +102,8 @@ def B5():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def C6():
+
+def c6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1046.50 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -101,7 +111,8 @@ def C6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def D6():
+
+def d6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1174.66 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -109,7 +120,8 @@ def D6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def A5():
+
+def a5():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 880.000 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -117,7 +129,8 @@ def A5():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def F6():
+
+def f6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1396.91 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -125,7 +138,8 @@ def F6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def A6():
+
+def a6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1760.00 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -133,7 +147,8 @@ def A6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def G6():
+
+def g6():
     for i in range(0, Soundtuple[3]):
         value = math.sin(2.0 * math.pi * 1567.98 * (i / Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
@@ -141,19 +156,19 @@ def G6():
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
 
-def Whitespace():
+
+def whitespace():
     for i in range(0, Soundtuple[3]):
         value = math.sin(0)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
-
-
     value_str = ''.join(values)
     noise_out.writeframes(value_str)
 
-def CloseSound():
+
+def close_sound():
     noise_out.close()
 
 
@@ -181,64 +196,64 @@ while True:
 
         if keys[K_a]:
             print 'A4'
-            A4()
+            a4()
 
         if keys[K_s]:
             print 'E4'
-            B4()
+            b4()
 
         if keys[K_d]:
             print 'C5'
-            C5()
+            c5()
 
         if keys[K_f]:
             print 'D5'
-            D5()
+            d5()
 
         if keys[K_g]:
             print 'E5'
-            E5()
+            e5()
 
         if keys[K_h]:
             print 'F5'
-            F5()
+            f5()
 
         if keys[K_j]:
             print 'G5'
-            G5()
+            g5()
 
         if keys[K_k]:
             print 'A5'
-            A5()
+            a5()
 
         if keys[K_l]:
             print 'B5'
-            B5()
+            b5()
 
         if keys[K_z]:
             print 'C6'
-            C6()
+            c6()
 
         if keys[K_x]:
             print 'D6'
-            D6()
+            d6()
 
         if keys[K_c]:
             print 'E6'
-            E6()
+            e6()
 
         if keys[K_v]:
             print 'F6'
-            F6()
+            f6()
 
         if keys[K_b]:
             print 'G6'
-            G6()
+            g6()
 
         if keys[K_SPACE]:
             print 'Silence'
-            Whitespace()
+            whitespace()
 
         if keys[K_RETURN]:
             print 'Sound Closed'
-            CloseSound()
+            close_sound()
