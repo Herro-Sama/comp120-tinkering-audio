@@ -124,3 +124,4 @@ while True:
         if keys[K_RETURN]:
             print 'Sound Closed'
             close_sound()
+			
