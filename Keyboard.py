@@ -16,141 +16,9 @@ noise_out.setparams(Soundtuple)
 values = []
 
 
-def a4():
+def sound_generator(frequency):
     for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 440.000 * (i/Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def b4():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 493.883 * (i/Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-    value_str = ''.join(values)
-    noise_out.writeframes(value_str)
-
-
-def c5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 523.251 * (i/Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-    value_str = ''.join(values)
-    noise_out.writeframes(value_str)
-
-
-def d5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 587.330 * (i/Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def e5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 659.255 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def f5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 698.456 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def g5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 783.991 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def e6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1318.51 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def b5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 987.767 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def c6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1046.50 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def d6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1174.66 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def a5():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 880.000 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def f6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1396.91 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def a6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1760.00 * (i / Soundtuple[2])) * (amplitude * BitDepth)
-        packaged_value = struct.pack('h', value)
-
-        for j in xrange(0, Soundtuple[0]):
-            values.append(packaged_value)
-
-
-def g6():
-    for i in range(0, Soundtuple[3]):
-        value = math.sin(2.0 * math.pi * 1567.98 * (i / Soundtuple[2])) * (amplitude * BitDepth)
+        value = math.sin(2.0 * math.pi * frequency * (i/Soundtuple[2])) * (amplitude * BitDepth)
         packaged_value = struct.pack('h', value)
 
         for j in xrange(0, Soundtuple[0]):
@@ -196,59 +64,58 @@ while True:
 
         if keys[K_a]:
             print 'A4'
-            a4()
-
+            sound_generator(440.000)
         if keys[K_s]:
             print 'E4'
-            b4()
+            sound_generator(493.883)
 
         if keys[K_d]:
             print 'C5'
-            c5()
+            sound_generator(523.251)
 
         if keys[K_f]:
             print 'D5'
-            d5()
+            sound_generator(587.330)
 
         if keys[K_g]:
             print 'E5'
-            e5()
+            sound_generator(659.255)
 
         if keys[K_h]:
             print 'F5'
-            f5()
+            sound_generator(698.456)
 
         if keys[K_j]:
             print 'G5'
-            g5()
+            sound_generator(783.991)
 
         if keys[K_k]:
             print 'A5'
-            a5()
+            sound_generator(880.000)
 
         if keys[K_l]:
             print 'B5'
-            b5()
+            sound_generator(987.767)
 
         if keys[K_z]:
             print 'C6'
-            c6()
+            sound_generator(1046.50)
 
         if keys[K_x]:
             print 'D6'
-            d6()
+            sound_generator(1174.66)
 
         if keys[K_c]:
             print 'E6'
-            e6()
+            sound_generator(1318.51)
 
         if keys[K_v]:
             print 'F6'
-            f6()
+            sound_generator(1396.91)
 
         if keys[K_b]:
             print 'G6'
-            g6()
+            sound_generator(1567.98)
 
         if keys[K_SPACE]:
             print 'Silence'
