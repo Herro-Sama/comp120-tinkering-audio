@@ -3,6 +3,7 @@ import math
 import struct
 import pygame
 import sys
+import random
 from pygame.locals import *
 
 samplerate = float(44100)                                                                                   # Hz
@@ -50,6 +51,22 @@ def whitespace():
 
 def close_sound():
     noise_out.close()
+
+"Attempting Doubling"
+"""def double(list):
+    doubled_list = []
+    for i in xrange(0, len(list), 2):
+        doubled_list.append(list[i])
+    values = doubled_list"""
+
+def white_noise():
+    for i in xrange(0, Soundtuple[3]):
+        noise = random.randrange(-BitDepth, BitDepth)
+        packaged_value = struct.pack('i', noise)
+        for j in xrange(0, Soundtuple[0]):
+            values.append(packaged_value)
+
+
 
 
 pygame.init()
@@ -132,6 +149,10 @@ while True:
         if keys[K_SPACE]:
             print 'Silence'
             whitespace()
+
+        if keys[K_BACKSPACE]:
+            print 'white noise'
+            white_noise()
 
         if keys[K_RETURN]:
             print 'Sound Closed'
