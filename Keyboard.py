@@ -7,8 +7,8 @@ from pygame.locals import *
 
 samplerate = float(44100)                                                                                   # Hz
 SampleLength = 22050                                                                                        # seconds
-BitDepth = 65000
-envelope_test_values = (0.4, 0.1, 0.4, 0.4)
+BitDepth = 32767
+envelope_test_values = (0.05, 0.025, 0.4, 0.3)
 Soundtuple = (1, 2, samplerate, SampleLength, 'NONE', 'Not compressed')
 noise_out = wave.open('keyboard.wav', 'w')
 noise_out.setparams(Soundtuple)
@@ -26,13 +26,13 @@ def sound_generator(frequency, envelope_values):
     for i in range(0, Soundtuple[3]):
         if i < attack:
             volume += volume / attack
-        elif attack < i < sustain:
-            volume -= volume / decay
-        elif i > (attack + decay + sustain):
+        elif i > attack + decay + sustain:
             volume -= volume - release
         else:
-            volume = 0.4
-        value = math.sin(2.0 * math.pi * frequency * i / Soundtuple[2]) * (volume * BitDepth / 4)
+            volume = 1
+        if (volume * BitDepth) > BitDepth:
+            volume = 1
+        value = math.sin(2.0 * math.pi * frequency * i / Soundtuple[2]) * (volume * BitDepth)
         packaged_value = struct.pack('i', value)
         for j in xrange(0, Soundtuple[0]):
             values.append(packaged_value)
