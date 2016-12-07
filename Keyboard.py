@@ -123,5 +123,6 @@ while True:
 
         if keys[K_RETURN]:
             print 'Sound Closed'
+            value_str = ''.join(values)
+            noise_out.writeframes(value_str)
             close_sound()
-			
